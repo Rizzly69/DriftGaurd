@@ -1,0 +1,81 @@
+{
+  "name": "HITLAnnotation",
+  "type": "object",
+  "properties": {
+    "sample_id": {
+      "type": "string",
+      "description": "Identifier of the flagged sample"
+    },
+    "model_id": {
+      "type": "string",
+      "description": "AI model that flagged this sample"
+    },
+    "specialty": {
+      "type": "string",
+      "enum": [
+        "laparoscopic",
+        "cardiac",
+        "neurosurgery",
+        "orthopedic",
+        "general"
+      ],
+      "description": "Surgical specialty"
+    },
+    "model_prediction": {
+      "type": "string",
+      "description": "What the AI model predicted"
+    },
+    "model_confidence": {
+      "type": "number",
+      "description": "AI model confidence score (0-1)"
+    },
+    "expert_label": {
+      "type": "string",
+      "description": "Surgeon/expert validated label"
+    },
+    "annotation_status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "in_review",
+        "validated",
+        "rejected",
+        "escalated"
+      ],
+      "default": "pending",
+      "description": "Annotation workflow status"
+    },
+    "agreement": {
+      "type": "string",
+      "enum": [
+        "agree",
+        "disagree",
+        "uncertain"
+      ],
+      "description": "Whether expert agrees with model prediction"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Expert notes on the annotation"
+    },
+    "drift_related": {
+      "type": "boolean",
+      "description": "Whether this annotation was triggered by a drift event"
+    },
+    "priority": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "critical"
+      ],
+      "default": "medium"
+    }
+  },
+  "required": [
+    "sample_id",
+    "model_id",
+    "specialty"
+  ]
+}

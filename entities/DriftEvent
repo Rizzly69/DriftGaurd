@@ -1,0 +1,93 @@
+{
+  "name": "DriftEvent",
+  "type": "object",
+  "properties": {
+    "event_type": {
+      "type": "string",
+      "enum": [
+        "data_drift",
+        "concept_drift",
+        "covariate_shift",
+        "label_shift"
+      ],
+      "description": "Type of drift detected"
+    },
+    "severity": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "critical"
+      ],
+      "description": "Severity level of the drift event"
+    },
+    "specialty": {
+      "type": "string",
+      "enum": [
+        "laparoscopic",
+        "cardiac",
+        "neurosurgery",
+        "orthopedic",
+        "general"
+      ],
+      "description": "Surgical specialty affected"
+    },
+    "detection_method": {
+      "type": "string",
+      "enum": [
+        "MMD",
+        "KS_Test",
+        "PSI",
+        "SPC",
+        "ADWIN"
+      ],
+      "description": "Method used to detect the drift"
+    },
+    "performance_drop": {
+      "type": "number",
+      "description": "Percentage drop in performance"
+    },
+    "affected_metric": {
+      "type": "string",
+      "enum": [
+        "accuracy",
+        "precision",
+        "recall",
+        "f1_score",
+        "latency"
+      ],
+      "description": "The metric most affected"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "detected",
+        "investigating",
+        "mitigating",
+        "resolved",
+        "dismissed"
+      ],
+      "default": "detected",
+      "description": "Current status of the drift event"
+    },
+    "description": {
+      "type": "string",
+      "description": "Detailed description of the drift event"
+    },
+    "model_id": {
+      "type": "string",
+      "description": "Identifier of the affected AI model"
+    },
+    "confidence_score": {
+      "type": "number",
+      "description": "Confidence of drift detection (0-1)"
+    }
+  },
+  "required": [
+    "event_type",
+    "severity",
+    "specialty",
+    "detection_method"
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "name": "ShadowComparison",
+  "type": "object",
+  "properties": {
+    "model_a_id": {
+      "type": "string"
+    },
+    "model_a_version": {
+      "type": "string"
+    },
+    "model_b_id": {
+      "type": "string"
+    },
+    "model_b_version": {
+      "type": "string"
+    },
+    "specialty": {
+      "type": "string",
+      "enum": [
+        "laparoscopic",
+        "cardiac",
+        "neurosurgery",
+        "orthopedic",
+        "general"
+      ]
+    },
+    "sample_count": {
+      "type": "number"
+    },
+    "agreement_rate": {
+      "type": "number",
+      "description": "% of cases both models agree"
+    },
+    "model_a_accuracy": {
+      "type": "number"
+    },
+    "model_b_accuracy": {
+      "type": "number"
+    },
+    "model_a_latency": {
+      "type": "number"
+    },
+    "model_b_latency": {
+      "type": "number"
+    },
+    "recommendation": {
+      "type": "string",
+      "enum": [
+        "promote_b",
+        "keep_a",
+        "needs_more_data",
+        "escalate"
+      ],
+      "description": "System recommendation"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "running",
+        "completed",
+        "promoted",
+        "rejected"
+      ],
+      "default": "running"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "model_a_id",
+    "model_b_id",
+    "specialty"
+  ]
+}

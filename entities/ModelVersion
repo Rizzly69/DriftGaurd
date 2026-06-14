@@ -1,0 +1,68 @@
+{
+  "name": "ModelVersion",
+  "type": "object",
+  "properties": {
+    "model_id": {
+      "type": "string",
+      "description": "Base model identifier"
+    },
+    "version": {
+      "type": "string",
+      "description": "Version tag e.g. v3.2, v3.3"
+    },
+    "specialty": {
+      "type": "string",
+      "enum": [
+        "laparoscopic",
+        "cardiac",
+        "neurosurgery",
+        "orthopedic",
+        "general"
+      ]
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "shadow",
+        "archived",
+        "rollback_candidate"
+      ],
+      "default": "shadow"
+    },
+    "accuracy": {
+      "type": "number"
+    },
+    "f1_score": {
+      "type": "number"
+    },
+    "precision_score": {
+      "type": "number"
+    },
+    "recall": {
+      "type": "number"
+    },
+    "latency_ms": {
+      "type": "number"
+    },
+    "drift_score": {
+      "type": "number"
+    },
+    "training_samples": {
+      "type": "number"
+    },
+    "changelog": {
+      "type": "string",
+      "description": "What changed in this version"
+    },
+    "is_current": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": [
+    "model_id",
+    "version",
+    "specialty"
+  ]
+}

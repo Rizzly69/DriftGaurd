@@ -1,0 +1,68 @@
+{
+  "name": "AuditLog",
+  "type": "object",
+  "properties": {
+    "action": {
+      "type": "string",
+      "description": "Action performed"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "drift_detection",
+        "model_update",
+        "alert_status",
+        "recalibration",
+        "user_validation",
+        "system"
+      ],
+      "description": "Category of the audit event"
+    },
+    "model_id": {
+      "type": "string",
+      "description": "Affected model identifier"
+    },
+    "specialty": {
+      "type": "string",
+      "enum": [
+        "laparoscopic",
+        "cardiac",
+        "neurosurgery",
+        "orthopedic",
+        "general",
+        "system"
+      ],
+      "description": "Surgical specialty"
+    },
+    "details": {
+      "type": "string",
+      "description": "Detailed description of the event"
+    },
+    "outcome": {
+      "type": "string",
+      "enum": [
+        "success",
+        "warning",
+        "failure",
+        "pending"
+      ],
+      "default": "success"
+    },
+    "user_role": {
+      "type": "string",
+      "description": "Role of the user who triggered the action"
+    },
+    "regulatory_flag": {
+      "type": "boolean",
+      "description": "Whether this event is flagged for regulatory review"
+    },
+    "reference_id": {
+      "type": "string",
+      "description": "Reference to related entity ID (drift event, recalibration)"
+    }
+  },
+  "required": [
+    "action",
+    "category"
+  ]
+}

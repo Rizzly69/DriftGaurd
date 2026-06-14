@@ -1,0 +1,69 @@
+{
+  "name": "RecalibrationAction",
+  "type": "object",
+  "properties": {
+    "action_type": {
+      "type": "string",
+      "enum": [
+        "retrain",
+        "transfer_learning",
+        "active_learning",
+        "parameter_tuning",
+        "data_augmentation"
+      ],
+      "description": "Type of recalibration action"
+    },
+    "model_id": {
+      "type": "string",
+      "description": "Identifier of the model being recalibrated"
+    },
+    "specialty": {
+      "type": "string",
+      "enum": [
+        "laparoscopic",
+        "cardiac",
+        "neurosurgery",
+        "orthopedic",
+        "general"
+      ],
+      "description": "Surgical specialty"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "scheduled",
+        "in_progress",
+        "completed",
+        "failed",
+        "cancelled"
+      ],
+      "default": "scheduled",
+      "description": "Current status of the recalibration"
+    },
+    "trigger_reason": {
+      "type": "string",
+      "description": "Reason for triggering recalibration"
+    },
+    "performance_before": {
+      "type": "number",
+      "description": "Performance metric before recalibration"
+    },
+    "performance_after": {
+      "type": "number",
+      "description": "Performance metric after recalibration"
+    },
+    "data_samples_used": {
+      "type": "number",
+      "description": "Number of data samples used for recalibration"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Additional notes about the recalibration"
+    }
+  },
+  "required": [
+    "action_type",
+    "model_id",
+    "specialty"
+  ]
+}

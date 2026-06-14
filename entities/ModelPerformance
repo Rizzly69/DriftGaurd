@@ -1,0 +1,58 @@
+{
+  "name": "ModelPerformance",
+  "type": "object",
+  "properties": {
+    "model_id": {
+      "type": "string",
+      "description": "Identifier of the AI model"
+    },
+    "specialty": {
+      "type": "string",
+      "enum": [
+        "laparoscopic",
+        "cardiac",
+        "neurosurgery",
+        "orthopedic",
+        "general"
+      ],
+      "description": "Surgical specialty"
+    },
+    "accuracy": {
+      "type": "number",
+      "description": "Model accuracy (0-100)"
+    },
+    "precision_score": {
+      "type": "number",
+      "description": "Model precision (0-100)"
+    },
+    "recall": {
+      "type": "number",
+      "description": "Model recall (0-100)"
+    },
+    "f1_score": {
+      "type": "number",
+      "description": "F1 score (0-100)"
+    },
+    "latency_ms": {
+      "type": "number",
+      "description": "Inference latency in milliseconds"
+    },
+    "data_samples_count": {
+      "type": "number",
+      "description": "Number of data samples processed"
+    },
+    "recording_period": {
+      "type": "string",
+      "description": "Period label (e.g., 'Month 1', 'Week 12')"
+    },
+    "drift_score": {
+      "type": "number",
+      "description": "Composite drift score (0-1)"
+    }
+  },
+  "required": [
+    "model_id",
+    "specialty",
+    "accuracy"
+  ]
+}
